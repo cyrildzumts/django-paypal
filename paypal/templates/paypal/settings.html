@@ -3,14 +3,12 @@
 
 {% block CONTENT_MAIN %}
 
-<div class="actions flex-left">
-{% if paypal_setting %}
-<a class="mat-button mat-button-default" href="{% url 'dashboard:update-paypal-setting' %}">{% translate "Edit Setting" %}</a>
-{% else %}
-<a class="mat-button mat-button-default" href="{% url 'dashboard:create-paypal-setting' %}">{% translate "Add Setting" %}</a>
-{% endif %}
-</div>
+
 <div class="mat-box container">
+{% if paypal_setting %}
+    <div class="actions flex-left">
+        <a class="mat-button mat-button-default" href="{% url 'dashboard:update-paypal-setting' %}">{% translate "Edit Setting" %}</a>
+    </div>
     <div class="col-xs-12 col-7">
         <div class="box create-form">
             <input type="hidden" name="changed_by" value="{{request.user.pk}}">
@@ -90,5 +88,14 @@
             </div>
         </div>
     </div>
-    </div><!-- End of container-->
+    
+{% else %}
+<div class="mat-box">
+    <p class="">{% translate "No setting" %}</p>
+</div>
+<div class="actions flex-left">
+    <a class="mat-button mat-button-default" href="{% url 'dashboard:create-paypal-setting' %}">{% translate "Add Setting" %}</a>
+</div>
+{% endif %}
+</div><!-- End of container-->
 {% endblock CONTENT_MAIN %}
