@@ -39,6 +39,10 @@
                     <label for="token_added_at">{% translate "Token Date" %}</label>
                     <input id="token_added_at" type="text"  name="token_added_at" value="{{paypal_setting.token_added_at|default:''}}">
                 </div>
+                <div class="form-group full">
+                    <label for="last_edited_at">{% translate "Last Modification Date" %}</label>
+                    <input id="last_edited_at" type="text"  name="last_edited_at" value="{{paypal_setting.last_edited_at|default:''}}">
+                </div>
             </div>
             <div class="flex flex-left flex-wrap">
                 <div class="form-group full">
