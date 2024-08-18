@@ -4,6 +4,8 @@ from django.db import transaction
 from paypal.models import PaypalSettings, PaypapPayment
 from paypal.forms import PaypalSettingsForm
 from paypal import constants as Constants
+from django.utils import timezone
+import datetime
 import base64
 import requests
 import logging
@@ -60,6 +62,7 @@ def auth_request():
     auth_url = f"{paypal_settings.api_root_url}{paypal_settings.auth_url}"
     logger.debug(f'Sending auth request to url {paypal_settings.auth_url}')
     response = None
+    request_date = timezone.now()
     try:
         response = requests.post(auth_url, data=data, headers=headers)
         logger.debug(f'auth request response : {response}')
@@ -69,6 +72,7 @@ def auth_request():
         response_data = response.json()
         logger.debug(f"PayPal Auth Response JSON : {response_data}")
         PaypalSettings.objects.filter(pk=paypal_settings.pk).update(
+            token_added_at=request_date,
             scope=response_data['scope'], access_token=response_data['access_token'], token_type=response_data['token_type'], app_id=response_data['app_id'],
             expires_in=response_data['expires_in'], nonce=response_data['nonce']
         )

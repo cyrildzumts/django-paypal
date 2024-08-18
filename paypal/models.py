@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from paypal import constants as Constants
-from django.utils import timezone
-import datetime
+
 import uuid
 
 # Create your models here.
