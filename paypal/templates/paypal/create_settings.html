@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block CONTENT_MAIN %}
-<form id="paypal-setting-form" name="paypal-setting-form" action="{% url 'paypal:create-setting' %}" method="POST">{% csrf_token %}
+<form id="paypal-setting-form" name="paypal-setting-form" action="{% url 'dashboard:create-paypal-setting' %}" method="POST">{% csrf_token %}
     <div class="mat-box container">
         <div class="col-xs-12 col-7">
             <div class="box create-form">
