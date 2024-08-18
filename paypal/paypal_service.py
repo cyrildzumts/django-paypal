@@ -52,7 +52,7 @@ def auth_request():
         'grant_type': Constants.PAYPAL_AUTH_GRANT_TYPE_HEADER
     }
     #auth = (paypal_settings.client_id, paypal_settings.secret)
-    CLIENT_AUTH = Constants.PAYPAL_AUTH_HEADER_PREFIX + base64.encode(f"{paypal_settings.client_id}:{paypal_settings.secret}")
+    CLIENT_AUTH = Constants.PAYPAL_AUTH_HEADER_PREFIX + base64.b64(f"{paypal_settings.client_id}:{paypal_settings.secret}".encode())
     headers={
         'Content-Type': Constants.PAYPAL_AUTH_HEADER_CONTENT_TYPE,
         'Authorization': CLIENT_AUTH
