@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: django-paypal
+Version: 1.0.0
+Summary: The work on this project in focused on Paypal Support to my projects
+Home-page: https://github.com/cyrildzumts/django-paypal
+Author: Cyrille Ngassam Nkwenga
+Author-email: cyrildz@gmail.com
+License: BSD License
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 4.2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+License-File: LICENSE

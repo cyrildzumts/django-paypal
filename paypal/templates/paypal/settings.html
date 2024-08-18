@@ -5,9 +5,9 @@
 
 <div class="actions flex-left">
 {% if paypal_setting %}
-<a class="mat-button mat-button-default" href="{% url 'paypal:update-setting' %}">{% translate "Edit Setting" %}</a>
+<a class="mat-button mat-button-default" href="{% url 'dashboard:update-paypal-setting' %}">{% translate "Edit Setting" %}</a>
 {% else %}
-<a class="mat-button mat-button-default" href="{% url 'paypal:create-setting' %}">{% translate "Add Setting" %}</a>
+<a class="mat-button mat-button-default" href="{% url 'dashboard:create-paypal-setting' %}">{% translate "Add Setting" %}</a>
 {% endif %}
 </div>
 <div class="mat-box container">
