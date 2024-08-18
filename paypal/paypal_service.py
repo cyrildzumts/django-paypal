@@ -55,7 +55,7 @@ def auth_request():
     logger.debug(f'Sending auth request to url {paypal_settings.auth_url}')
     response = None
     try:
-        response = requests.post(paypal_settings.auth_url, data=data, headers=headers)
+        response = requests.post(f"{paypal_settings.api_root_url}{paypal_settings.auth_url}", data=data, headers=headers)
         logger.debug(f'auth request response : {response}')
         if not response:
             logger.error(f"Error on requesting a payment to the url {paypal_settings.auth_url} : status code {response.status_code} - error : {response}")
