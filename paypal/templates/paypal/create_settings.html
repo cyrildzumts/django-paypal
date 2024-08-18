@@ -1,0 +1,47 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+<form id="paypal-setting-form" name="paypal-setting-form" action="{% url 'paypal:create-setting' %}" method="POST">{% csrf_token %}
+    <div class="mat-box container">
+        <div class="col-xs-12 col-7">
+            <div class="box create-form">
+                <input type="hidden" name="added_by" value="{{request.user.pk}}">
+                <div class="flex flex-left flex-wrap">
+                    <div class="form-group">
+                        <label for="app_name">{% translate "App Name" %}</label>
+                        <input id="app_name" type="text"  name="app_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="client_id">{% translate "Client ID" %}</label>
+                        <input id="client_id" type="text"  name="client_id">
+                    </div>
+                    <div class="form-group">
+                        <label for="secret">{% translate "Secret" %}</label>
+                        <input id="secret" type="text"  name="secret">
+                    </div>
+                </div>
+                <div class="flex flex-left">
+                    <div class="form-group">
+                        <label for="api_url">{% translate "API URL" %}</label>
+                        <input id="api_url" type="text"  name="api_url">
+                    </div>
+                    <div class="form-group">
+                        <label for="auth_url">{% translate "AUTH URL" %}</label>
+                        <input id="auth_url" type="text"  name="auth_url">
+                    </div>
+                    <div class="form-group">
+                            <span class="padding-bottom">{% translate "Status" %}</span>
+                            <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active"><label for="is_active">{% translate "Active" %}</label></span></div>
+                    </div>
+                </div>
+        
+                <div class="actions flex-right">
+                        <a class="mat-button mat-button-outline js-cancel" href="{% url 'dashboard:home' %}">{% translate "Cancel" %}</a>
+                        <button class="mat-button mat-button-default" type="submit">{% translate "Create" %}</button>
+                </div>
+            </div>
+        </div>
+        </div><!-- End of container-->
+</form>
+{% endblock CONTENT_MAIN %}
