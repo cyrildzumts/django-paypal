@@ -30,7 +30,7 @@ class PaypalSettings(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=False, null=False)
     last_edited_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='added_paypal_settings', blank=False, null=False)
-    changed_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='changed_paypal_settings', blank=False, null=False)
+    changed_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='changed_paypal_settings', blank=True, null=True)
     setting_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     
     FORM_FIELDS = ['client_id','app_name', 'app_id','secret', 'access_token', 'token_added_at', 'token_type', 'expires_in', 'nonce', 'scope',
