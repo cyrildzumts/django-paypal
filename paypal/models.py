@@ -34,7 +34,7 @@ class PaypalSettings(models.Model):
     setting_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     
     FORM_FIELDS = ['client_id','app_name', 'app_id','secret', 'access_token', 'token_added_at', 'token_type', 'expires_in', 'nonce', 'scope',
-        'is_active', 'api_url', 'auth_url', 'success_url', 'failed_url', 'update_url', 'added_by', 'changed_by'
+        'is_active','api_root_url', 'api_url', 'auth_url', 'success_url', 'failed_url', 'update_url', 'added_by', 'changed_by'
     ]
     
     def as_dict(self):
