@@ -42,6 +42,11 @@ def auth_request():
     paypal_settings = PaypalSettings.objects.first()
     if paypal_settings is None:
         logger.warning(f"No paypal setting found. Please add paypal setting first")
+        return
+    
+    if not paypal_settings.is_active:
+        logger.warning(f"PayPal Setting found but is not activated. Please activate the setting first or add a new setting")
+        return
     
     data = {
         'grant_type': Constants.PAYPAL_AUTH_GRANT_TYPE_HEADER
@@ -52,15 +57,17 @@ def auth_request():
         'Content-Type': Constants.PAYPAL_AUTH_HEADER_CONTENT_TYPE,
         'Authorization': CLIENT_AUTH
     }
+    auth_url = f"{paypal_settings.api_root_url}{paypal_settings.auth_url}"
     logger.debug(f'Sending auth request to url {paypal_settings.auth_url}')
     response = None
     try:
-        response = requests.post(f"{paypal_settings.api_root_url}{paypal_settings.auth_url}", data=data, headers=headers)
+        response = requests.post(auth_url, data=data, headers=headers)
         logger.debug(f'auth request response : {response}')
         if not response:
             logger.error(f"Error on requesting a payment to the url {paypal_settings.auth_url} : status code {response.status_code} - error : {response}")
             return False
         response_data = response.json()
+        logger.debug(f"PayPal Auth Response JSON : {response_data}")
         PaypalSettings.objects.filter(pk=paypal_settings.pk).update(
             scope=response_data['scope'], access_token=response_data['access_token'], token_type=response_data['token_type'], app_id=response_data['app_id'],
             expires_in=response_data['expires_in'], nonce=response_data['nonce']
