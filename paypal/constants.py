@@ -1,4 +1,4 @@
-
+from django.utils.translation import gettext_lazy as _
 
 MAX_DIGITS = 10
 PRODUCT_PRICE_DECIMAL_PLACES = 2
