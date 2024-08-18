@@ -21,6 +21,7 @@ class PaypalSettings(models.Model):
     is_active = models.BooleanField(default=True)
     api_auth_content_type = models.CharField(max_length=Constants.CHARFIELD_MIN_LENGTH, blank=True, null=True)
     api_auth_grand_type = models.CharField(max_length=Constants.CHARFIELD_MIN_LENGTH, blank=True, null=True)
+    api_root_url = models.TextField(max_length=Constants.PAYPAL_API_URL_LENGTH, blank=True, null=True)
     api_url = models.TextField(max_length=Constants.PAYPAL_API_URL_LENGTH, blank=True, null=True)
     auth_url = models.TextField(max_length=Constants.PAYPAL_API_URL_LENGTH, blank=True, null=True)
     success_url = models.TextField(max_length=Constants.REDIRECT_URL_LENGTH, blank=True, null=True)

@@ -69,6 +69,10 @@
                 </div>
                 <div class="flex flex-left flex-wrap">
                     <div class="form-group full">
+                        <label for="api_root_url">{% translate "API Root URL" %}</label>
+                        <input id="api_root_url" type="text"  name="api_root_url" value="{{paypal_setting.api_root_url|default:''}}">
+                    </div>
+                    <div class="form-group full">
                         <label for="api_url">{% translate "API URL" %}</label>
                         <input id="api_url" type="text"  name="api_url" value="{{paypal_setting.api_url|default:''}}">
                     </div>
