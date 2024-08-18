@@ -8,47 +8,47 @@
             <div class="box create-form">
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
                 <div class="flex flex-left flex-wrap">
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="app_name">{% translate "App Name" %}</label>
                         <input id="app_name" type="text"  name="app_name" value="{{paypal_setting.app_name|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="client_id">{% translate "Client ID" %}</label>
                         <input id="client_id" type="text"  name="client_id" value="{{paypal_setting.client_id|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="secret">{% translate "Secret" %}</label>
                         <input id="secret" type="text"  name="secret" value="{{paypal_setting.secret|default:''}}">
                     </div>
                 </div>
                 <div class="flex flex-left flex-wrap">
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="app_id">{% translate "App ID" %}</label>
                         <input id="app_id" type="text"  name="app_id" value="{{paypal_setting.app_id|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="access_token">{% translate "Access Token" %}</label>
                         <input id="access_token" type="text"  name="access_token" value="{{paypal_setting.access_token|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="token_added_at">{% translate "Token Date" %}</label>
                         <input id="token_added_at" type="text"  name="token_added_at" value="{{paypal_setting.token_added_at|default:''}}">
                     </div>
                 </div>
                 <div class="flex flex-left flex-wrap">
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="token_type">{% translate "Token Type" %}</label>
                         <input id="token_type" type="text"  name="token_type" value="{{paypal_setting.token_type|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="expires_in">{% translate "Token Expires In" %}</label>
                         <input id="expires_in" type="text"  name="expires_in" value="{{paypal_setting.expires_in|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="nonce">{% translate "Token Nonce" %}</label>
                         <input id="nonce" type="text"  name="nonce" value="{{paypal_setting.nonce|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="scope">{% translate "API Scope" %}</label>
                         <textarea id="scope" name="scope">{{paypal_setting.scope|default:''}}</textarea>
                     </div>
@@ -58,25 +58,25 @@
                         <label for="success_url">{% translate "Succes redirect URL" %}</label>
                         <input id="success_url" type="text"  name="success_url" value="{{paypal_setting.success_url|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="failed_url">{% translate "Failed Redirect URL" %}</label>
                         <input id="failed_url" type="text"  name="failed_url" value="{{paypal_setting.failed_url|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="update_url">{% translate "Update Redirect URL" %}</label>
                         <input id="update_url" type="text"  name="update_url" value="{{paypal_setting.update_url|default:''}}">
                     </div>
                 </div>
                 <div class="flex flex-left">
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="api_url">{% translate "API URL" %}</label>
                         <input id="api_url" type="text"  name="api_url" value="{{paypal_setting.api_url|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                         <label for="auth_url">{% translate "AUTH URL" %}</label>
                         <input id="auth_url" type="text"  name="auth_url" value="{{paypal_setting.auth_url|default:''}}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group full">
                             <span class="padding-bottom">{% translate "Status" %}</span>
                             <div class="row"><span class="padding"><input id="is_active" type="checkbox"  name="is_active" checked="{% if paypal_setting.is_active %}checked{% endif %}"><label for="is_active">{% translate "Active" %}</label></span></div>
                     </div>
